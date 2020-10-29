@@ -9,4 +9,6 @@ This repository contains the code used to compute the results reported in a seri
 
 This repository also contains the code used for the paper "Exoplanet Occurrence Rates of Mid M-dwarfs Based on Kepler DR25", https://iopscience.iop.org/article/10.3847/2515-5172/ab7afd, which does a simple estimate of the occurrence of exoplanets around mid M-dwarfs.  This paper uses the code in the directory midMDwarfs.
 
+For a more gentle introduction to the techniques used in this code, see the repository DR25-occurrence-tutorial.
+
 The code in this repository is not intended to be used by the community, and is neither maintained nor supported.  It is research code that is not intended to be user-friendly.  It is presented so the community can examine how we got the results in the above papers. 
