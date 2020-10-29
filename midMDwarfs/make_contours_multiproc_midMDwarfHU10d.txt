@@ -1,0 +1,20 @@
+#!/bin/bash
+
+nworkers=8
+
+cd ../completenessContours
+
+for (( i=0; i<$nworkers; i++ ))
+do 
+	python compute_num_completeness_mproc.py $i $nworkers 0.5 100.0 2000 0.5 11 3001 ../midMDwarfs/stellarCatalogs/dr25_HU_stellar_clean.txt /Volumes/coco/dr25/dr25CompletenessFits ../midMDwarfs/midMDwarfsHU10dOutput/vetCompletenessTable.pkl constant out &
+done
+
+wait
+
+python accumulate.py
+mv out__.fits.gz contour_midMDwarfsHU10dOutput.fits.gz
+python examgrid.py contour_midMDwarfsHU10dOutput
+
+mv contour_midMDwarfsHU10dOutput* ../midMDwarfs/midMDwarfsHU10dOutput
+
+cd ../midMDwarfs
