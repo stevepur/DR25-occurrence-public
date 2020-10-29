@@ -1,17 +1,6 @@
-# DR25-occurrence
-Python notebooks that explain the computation of various DR25 occurrence rate products
+# DR25-occurrence-public/GKRobotterVariations
+This repository contains the code used to compute the results reported in "Reliability Correction is Key for Robust Kepler Occurrence Rates" https://iopscience.iop.org/article/10.3847/1538-3881/abb316, https://arxiv.org/abs/2006.15719, which demonstrates the occurrence rates are robustly independent of catalog variations when correcting for reliability, and depend on catalog variations when not correcting for reliability.  
 
-This directory contains the notebooks and python code used to compute the GK baseline.  The flow of computation is:
+The Approximate Bayesian Computation code supporting this paper is not included in this repository.
 
-To make completeness contours:
-1) run binomialVettingCompleteness.ipynb
-2) go to ../completenessContours and run compute_num_completeness_mproc.py using vetCompletenessTable.pkl as the 11th input, with the name of the fit function in the 12th input
-
-To compute the reliability data and prepare the PC population
-0) select a model function (such as "rotatedLogisticX0") and set the model variables in the following before running
-1) run binomialObsFPRate.ipynb to fit the observed FP rate
-2) run binomialFPEffectiveness.ipynb to fit the FP effectiveness
-3) run makePlanetInput.ipynb uses the observed FP rate and FP effectiveness to compute false alarm reliability, applies FPP to compute total reliability, and selects the planet population
-
-To compute the occurrence rate
-1) run computeOccurrence.ipynb
+The code in this repository is not intended to be used by the community, and is neither maintained nor supported.  It is research code that is not intended to be user-friendly.  It is presented so the community can examine how we got the results in the above papers. 
