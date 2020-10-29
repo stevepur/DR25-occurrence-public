@@ -1,0 +1,15 @@
+#!/bin/bash
+
+nworkers=8
+
+for (( i=0; i<$nworkers; i++ ))
+do 
+	python compute_num_completeness_mproc.py $i $nworkers 50.0 400.0 2000 0.75 12.0 3001 ../stellarCatalogs/dr25_stellar_berger2019_clean_GK.txt /Volumes/coco/dr25/dr25CompletenessFits ../GKbaselineSC0p9/vetCompletenessTable.pkl logisticX0xRotatedLogisticY0 out &
+done
+
+wait
+
+python accumulate.py
+mv out__.fits.gz out_sc0p9_GK_baseline.fits.gz
+python examgrid.py out_sc0p9_GK_baseline
+

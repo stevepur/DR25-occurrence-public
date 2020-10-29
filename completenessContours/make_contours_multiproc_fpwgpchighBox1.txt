@@ -1,0 +1,14 @@
+#!/bin/bash
+
+nworkers=8
+
+for (( i=0; i<$nworkers; i++ ))
+do 
+	python compute_num_completeness_mproc.py $i $nworkers 50.0 400.0 2000 0.75 12.0 3001 ../GKRobovetterVariations/bootstrapOut/highBox1StellarCatalog.csv /Volumes/coco/dr25/dr25CompletenessFits ../GKRobovetterVariations/highBox1Output/vetCompletenessTable.pkl logisticX0xRotatedLogisticY0 out &
+done
+
+wait
+
+python accumulate.py
+mv out__.fits.gz out_sc0_GK_fpwgpchighBox1.fits.gz
+python examgrid.py out_sc0_GK_fpwgpchighBox1
