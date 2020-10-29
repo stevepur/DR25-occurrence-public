@@ -1,0 +1,14 @@
+#!/bin/bash
+
+nworkers=8
+
+for (( i=0; i<$nworkers; i++ ))
+do 
+	python compute_num_completeness_mproc_insol_teff.py $i $nworkers 10.0 500 2000 0.5 12.0 2000 ../stellarCatalogs/dr25_stellar_berger2020_clean_FGK.txt /Volumes/coco/dr25/dr25CompletenessFits ../insolation/dr25_FGK_output/vetCompletenessTable.pkl logisticX0xRotatedLogisticY0 out 0.0 &
+done
+
+wait
+
+python accumulate.py
+mv out__.fits.gz out_sc0_FGK_insol_teff.fits.gz
+python examgrid.py out_sc0_FGK_insol_teff
