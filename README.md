@@ -11,4 +11,6 @@ This repository also contains the code used for the paper "Exoplanet Occurrence 
 
 For a more gentle introduction to the techniques used in this code, see the repository DR25-occurrence-tutorial.
 
+The stellar catalogs we use in this work are constructed from those of https://arxiv.org/abs/2001.07737,  https://arxiv.org/abs/2005.14671, and the NASA Exoplanet archive http://exoplanetarchive.ipac.caltech.edu.
+
 The code in this repository is not intended to be used by the community, and is neither maintained nor supported.  It is research code that is not intended to be user-friendly.  It is presented so the community can examine how we got the results in the above papers. 
